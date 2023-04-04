@@ -11,25 +11,25 @@ int compute_score(string word);
 int main(void)
 {
     // Get input words from both players
-    string word[2];
-    word[0] = get_string("Player1: ");
-    word[1] = get_string("Player2: ");
+    string word[2];                   //Here, we create an array length of 2 to store indexes 0 and 1
+    word[0] = get_string("Player1: ");      //prompt user for input for word1
+    word[1] = get_string("Player2: ");      //prompt user for input for word2
 
     // Score both words
-    int score1 = compute_score(word[0]);
-    int score2 = compute_score(word[1]);
+    int score1 = compute_score(word[0]);        //call the compute score function below to pass in score1 word to compute each letter into a numerical score
+    int score2 = compute_score(word[1]);        //call the computer score function below to pass in score2 word to compute each letter into a numerical score
 
     // TODO: Print the winner
-    if (score1 == score2)
+    if (score1 == score2)                    //tie if both numbers are equal
     {
         printf("It's a tie.");
     }
-    else if (score1 > score2)
+    else if (score1 > score2)               //player2 loses if his number is less
     {
         printf("Player 1 wins.");
     }
 
-    else
+    else                                   //otherwise, if it's not a tie, and player2 didn't lose, then player 1 lost
     {
         printf("Player 2 wins.");
     }
@@ -39,13 +39,13 @@ int main(void)
 int compute_score(string word)
 {
     // TODO: Compute and return score for string
-    int score = 0;
+    int score = 0;                   //we begin by defining score to a nuetral value of 0
 
-    for (int i = 0; i < strlen(word); i++)
+    for (int i = 0; i < strlen(word); i++)    //loop through each letter of whatever word is being passed into the compute score function
     {
-        if (isupper(word[i]))
+        if (isupper(word[i]))             //must account for upper and lower cases
         {
-            score += POINTS[word[i] - 'A'];
+            score += POINTS[word[i] - 'A'];   //A is 65, so any number must subtract by that; 65 is treated as index 0.
         }
 
         else if (islower(word[i]))
@@ -54,6 +54,6 @@ int compute_score(string word)
         }
 
     }
-    return score;
+    return score;   //we return the score for that particular word after iterating through each letter
 
 }
