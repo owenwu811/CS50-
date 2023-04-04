@@ -48,7 +48,7 @@ int compute_score(string word)
             score += POINTS[word[i] - 'A'];   //A is 65, so any number must subtract by that; 65 is treated as index 0.
         }
 
-        else if (islower(word[i]))
+        else (islower(word[i]))
         {
             score += POINTS[word[i] - 'a'];
         }
