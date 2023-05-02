@@ -12,14 +12,15 @@ int main(void)
     string message = get_string("Message": );
     for (int i = 0; i < strlen(message); i++)
     {
-        unsigned char byte = message[i];
-        int binary[BITS_IN_BYTE];
-        int quotient = byte;
+        unsigned char byte = message[i]; // unsigned char ensures that we get a non-negative number with a value of 0 - 255 inclusive. If we use char, 
+        // then the byte value could be negative if ASCII value was over 127, and negative values are not binary compatible. 
+        int binary[BITS_IN_BYTE]; //BITS_IN_BYTE is a constant integer of 8 defined in line 5
+        int quotient = byte; // 
         int remainder;
     }
     for (int j = 0; j < BITS_INT_BYTE; j++)
     {
-        remainder = quotient % 2;
+        remainder = quotient % 2; // Each element of array is populated with 0 or 1, representing on or off for the lightblub, by dividing decimal value of byte by 2 and storing remainder in binary. 
         binary[j] = remainder;
         quotient /= 2;
     }
