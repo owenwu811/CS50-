@@ -1,7 +1,10 @@
+/* takes a user input message, converts each character of that message into binary, and prints the binary representation with light bulb emojis */
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
 
+/* represents numbers of bits in a byte */
 const int BITS_IN_BYTE = 8;
 
 void print_bulb(int bit);
